@@ -9,7 +9,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Unable to find Location', undefined, undefined, undefined, undefined, undefined);
         } else {
-            callback(undefined, 'Description: ' + body.current.weather_descriptions[0], 'Temprature: ' + body.current.temperature, 'Feelslike: ' + body.current.feelslike, 'Humidity: ' + body.current.humidity, 'Wind Speed: ' + body.current.wind_speed);
+            callback(undefined, 'Description: ' + body.current.weather_descriptions[0], 'Temprature: ' + body.current.temperature + ' °C', 'Feelslike: ' + body.current.feelslike + ' °C', 'Humidity: ' + body.current.humidity + '%', 'Wind Speed: ' + body.current.wind_speed + 'Km/h');
         }
     });
 };
