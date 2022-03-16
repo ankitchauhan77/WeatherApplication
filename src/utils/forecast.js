@@ -5,11 +5,11 @@ const forecast = (latitude, longitude, callback) => {
 
     request({url, json : true}, (error, {body} = {}) => {
         if (error) {
-            callback('Unable to connect with weater serverice', undefined);
+            callback('Unable to connect with weater serverice', undefined, undefined, undefined, undefined, undefined);
         } else if (body.error) {
-            callback('Unable to find Location', undefined);
+            callback('Unable to find Location', undefined, undefined, undefined, undefined, undefined);
         } else {
-            callback(undefined, body.current.weather_descriptions[0] + ' Temprature: ' + body.current.temperature + ' Feelslike: ' + body.current.feelslike);
+            callback(undefined, 'Description: ' + body.current.weather_descriptions[0], 'Temprature: ' + body.current.temperature, 'Feelslike: ' + body.current.feelslike, 'Humidity: ' + body.current.humidity, 'Wind Speed: ' + body.current.wind_speed);
         }
     });
 };
